@@ -1,0 +1,27 @@
+
+ACs
+
+1. use csv script to pull all data and sort items into each month by:
+    - total money invested (deposits)
+    - total dividends
+    - money withdrawn
+
+2. use each date to populate the Investments and Interest by month sheet
+  - we can use 2 dictionaries to associate each Month with a column (eg. January B)
+   - money invested is on row 6
+   - Dividends is row 7
+   - withdrawn is row 8
+
+Build order:
+
+// drop csv in convert folder
+// get and parse CSV
+// process CSV
+// use google API to update 120uEAV3SII0CWxaeLLeaHCBxXBHhXo0r_edZaYIRs6c
+// check results
+
+
+Future TODOs
+
+3. split dividends based on domestic and foriegn share holdings to make things easier for tax years
+4. split sheets by different sheets currently for POC. I am using current normal annual years not financial years. I want to give the option for both.
