@@ -4,7 +4,7 @@
 - Python 3.11.6+ 
 - a GCP project with sheets API enabled and a credentials.json file for a service account
 - a Google sheet
-- a csv export from Trading212
+- a `.csv` export from Trading212
 
 ## Description
 
