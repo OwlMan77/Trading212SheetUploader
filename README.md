@@ -10,7 +10,7 @@
 
 ## Description
 
-Since Trading212 is still in its beta stages for its API, I have created a small python project to move all the contents of an annual CSV export from a  Trading212 portfolio to get key statistics for taxes 
+Since Trading212 is still in its beta stages for its API, I have created a small python project to move all the contents of an annual CSV export from a  Trading212 portfolio to get key statistics for taxes for a Google sheet.
 
 ## How to run
 
