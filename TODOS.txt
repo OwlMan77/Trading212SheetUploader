@@ -24,4 +24,4 @@ Build order:
 Future TODOs
 
 3. split dividends based on domestic and foriegn share holdings to make things easier for tax years
-4. split sheets by different sheets currently for POC. I am using current normal annual years not financial years. I want to give the option for both.
+4. split sheets by different years currently for POC. I am using current normal annual years not financial years. I want to give the option for both.
