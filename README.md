@@ -3,7 +3,7 @@
 ## Requirements
 - Python 3.11.6+ 
 - a GCP project with sheets API enabled and a credentials.json file for a service account
-- a Google sheet
+- a Google sheet that the service account has access to
 - a `.csv` export from Trading212
 
 ## Description
