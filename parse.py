@@ -15,7 +15,8 @@ try:
 except FileNotFoundError:
   print(f"Folder not found: {folder_path}")
 
-def getMonthNum(date_string):
+
+def get_month(date_string):
     format_with_microseconds = '%Y-%m-%d %H:%M:%S.%f'
     format_without_microseconds = '%Y-%m-%d %H:%M:%S'
     
@@ -26,8 +27,32 @@ def getMonthNum(date_string):
     
     return int(datetime_object.month)
 
-def getYear():
-   return str(datetime.now().year)
+
+def get_date_year(date_string):
+    format_with_microseconds = '%Y-%m-%d %H:%M:%S.%f'
+    format_without_microseconds = '%Y-%m-%d %H:%M:%S'
+    
+    try:
+        datetime_object = datetime.strptime(date_string, format_with_microseconds)
+    except ValueError:
+        datetime_object = datetime.strptime(date_string, format_without_microseconds)
+    
+    return datetime_object.year
+
+def get_current_financial_year_num(month: int, year: int):
+    if month >= 4:  # Financial year starts from April
+        return year + 1
+    else:
+        return year
+
+def get_current_financial_year():
+    today = datetime.now()
+    month = today.month
+    year = today.year
+    if month >= 4:  # Financial year starts from April
+        return f"{year}/{year + 1}"
+    else:
+        return f"{year - 1}/{year}"
 
 def parse_csv():
     deposits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -37,7 +62,12 @@ def parse_csv():
     with open(file_path, mode='r', encoding='utf-8') as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-                month = getMonthNum(row['Time'])
+                raw_month = get_month(row['Time'])
+                month = 0
+                if raw_month > 3:
+                    month = raw_month - 4
+                if raw_month < 4: 
+                    month = raw_month + 9
                 if (row['Action'] == 'Deposit'):
                     deposits[month - 1] += float(row['Total'])
                 if (row['Action'] == 'Withdrawal'):

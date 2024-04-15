@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
 from google_sheets import write_to_sheet
-from parse import parse_csv, getYear
+from parse import parse_csv, get_current_financial_year
 
 load_dotenv()
 
 values = parse_csv()
-year = getYear()
+year = '2023/2024'
 
 # Your sheet will need to have three rows, each column is each month of the year: 
     # first row will be deposits
