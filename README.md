@@ -14,9 +14,14 @@ Since Trading212 is still in its beta stages for its API, I have created a small
 
 1. populate an `.env` file with the following variables
  - `SPREADSHEET_ID` - this is the sheet that you will be writing to
- - `RANGE` - (e.g 'B6:M8') this will be the rows that you will populate:
-    - first row will be deposits
-    - second row will be dividends
-    - third row will be withdrawals
+ - `LOCAL_RANGE` - (e.g 'B6:M8') this will be the rows that you will populate with UK based invesments:
+    - first row will be domestic deposits
+    - second row will be domestic dividends
+    - third row will be domestic withdrawals
+  - `US_RANGE` - (e.g 'B6:M8') this will be the rows that you will populate with UK based invesments:  
+    - fourth row will be US deposits
+    - fifth row will be US dividends
+    - sixth row will be US withdrawals
+
 
 2. `python3 main.py`

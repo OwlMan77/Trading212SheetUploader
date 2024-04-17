@@ -13,9 +13,9 @@ year = '2023/2024'
     # first row will be domestic deposits
     # second row will be domestic dividends
     # third row will be domestic withdrawals
-    # fourth row will be us deposits
-    # fifth row will be us dividends
-    # sixth row will be us withdrawals
+    # fourth row will be US deposits
+    # fifth row will be US dividends
+    # sixth row will be US withdrawals
 
 local_range = os.getenv('LOCAL_RANGE')
 us_range = os.getenv('US_RANGE')
