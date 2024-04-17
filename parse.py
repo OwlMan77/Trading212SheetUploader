@@ -55,9 +55,18 @@ def get_current_financial_year():
         return f"{year - 1}/{year}"
 
 def parse_csv():
-    deposits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dividends = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    withdrawals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    #deposits
+    local_deposits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    us_deposits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    #dividends
+    local_dividends = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    us_dividends = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    
+    # withdrawl
+    local_withdrawals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    us_withdrawals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     with open(file_path, mode='r', encoding='utf-8') as file:
         csv_reader = csv.DictReader(file)
@@ -68,11 +77,24 @@ def parse_csv():
                     month = raw_month - 4
                 if raw_month < 4: 
                     month = raw_month + 9
+                    
                 if (row['Action'] == 'Deposit'):
-                    deposits[month - 1] += float(row['Total'])
+                    if (row['Currency (Total)'] == 'GBP'):
+                      local_deposits[month - 1] += float(row['Total'])
+                    if (row['Currency (Total)'] == 'USD'):
+                      us_deposits[month - 1] += float(row['Total'])
+    
                 if (row['Action'] == 'Withdrawal'):
-                   withdrawals[month - 1] += float(row['Total'])
+                    if (row['Currency (Total)'] == 'GBP'):
+                      local_withdrawals[month - 1] += float(row['Total'])
+                    if (row['Currency (Total)'] == 'USD'):
+                      us_withdrawals[month - 1] += float(row['Total'])
+
                 if (row['Action'] == 'Dividend (Dividend)'):
-                    dividends[month - 1] += float(row['Total'])
-    return [deposits, dividends, withdrawals]
+                    if (row['Currency (Total)'] == 'GBP'):
+                      local_dividends[month - 1] += float(row['Total'])
+                    if (row['Currency (Total)'] == 'USD'):
+                      us_dividends[month - 1] += float(row['Total'])
+
+    return [local_deposits, local_dividends, local_withdrawals, us_deposits, us_dividends, us_withdrawals]
 

@@ -11,7 +11,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 credentials_file = 'credentials.json'
 
-def write_to_sheet(sheet_name, range, values):
+def write_to_sheet(sheet_name: str, range: str, values):
     creds = None
     if os.path.exists(credentials_file):
         creds = service_account.Credentials.from_service_account_file(
@@ -25,10 +25,10 @@ def write_to_sheet(sheet_name, range, values):
 
         service.spreadsheets().values().update(
             spreadsheetId=spreadsheet_id,
-            range=sheet_name+'!' + range,  # Adjust range for your data
+            range=sheet_name + '!' + range,  # Adjust range for your data
             valueInputOption='USER_ENTERED',
             body=body).execute()
 
-        print('Data written to sheet!')
+        print('Data written to sheet! Range updated: ' + range)
     else:
         print('You need to set up your Google Cloud Platform project first.')

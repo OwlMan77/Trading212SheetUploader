@@ -11,6 +11,8 @@ ACs
    - money invested is on row 6 #DONE
    - Dividends is row 7 #DONE
    - withdrawn is row 8 #DONE
+3. split dividends based on domestic and foriegn share holdings to make things easier for tax years # DONE
+4. split sheets by different years currently for POC. I am using current normal annual years not financial years. I want to give the option for both. #DONE
 
 Build order:
 
@@ -23,6 +25,4 @@ Build order:
 
 Future TODOs
 
-3. split dividends based on domestic and foriegn share holdings to make things easier for tax years
-4. split sheets by different years currently for POC. I am using current normal annual years not financial years. I want to give the option for both. #DONE
 5. have the sheets updated by the data rather than using a static arg.
