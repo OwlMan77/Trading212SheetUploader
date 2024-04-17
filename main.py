@@ -12,9 +12,10 @@ year = '2023/2024'
 # Your sheet will need to have three rows, each column is each month of the year: 
     # first row will be domestic deposits
     # second row will be domestic dividends
-    # third row will be us deposits
-    # fourth row will be us dividends
-    # fifth row will be withdrawals
+    # third row will be domestic withdrawals
+    # fourth row will be us deposits
+    # fifth row will be us dividends
+    # sixth row will be us withdrawals
 
 local_range = os.getenv('LOCAL_RANGE')
 us_range = os.getenv('US_RANGE')
